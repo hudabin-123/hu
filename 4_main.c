@@ -3,12 +3,24 @@
 //胡大彬
 #include <stdio.h>
  int main() {
-     int a, b, c;
-     scanf("%d %d %d", &a, &b, &c);
-     if (a + b > c && a + c > b && b + c > a) {
-         printf("可以组成三角形\n");
-     } else {
-         printf("不能组成三角形\n");
+     int arr[5]; // 长度为5的数组
+     int sum = 0;
+     
+     // 输入数组前四位
+     printf("请输入数组前四位（空格分隔）：");
+     for (int i = 0; i < 4; i++) {
+         scanf("%d", &arr[i]);
+         sum += arr[i]; // 累加前四位
      }
+     arr[4] = sum; // 第五位赋值为前四位和
+     
+     // 输出完整数组（最后一位后无空格）
+     for (int i = 0; i < 5; i++) {
+         if (i > 0) {
+             printf(" ");
+         }
+         printf("%d", arr[i]);
+     }
+     printf("\n");
      return 0;
  }
